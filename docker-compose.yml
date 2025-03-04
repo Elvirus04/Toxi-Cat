@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: toxicat_db
+    restart: always
+    environment:
+      POSTGRES_USER: toxicat_user
+      POSTGRES_PASSWORD: toxicat_pass
+      POSTGRES_DB: toxicat_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
